@@ -1,7 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-<div class="container">
+
+@include('partials.sidebar')
+
+<div class="main-content">
     <h2 class="fs-4 text-secondary my-4">
         {{ __('Dashboard') }}
     </h2>
@@ -22,6 +25,12 @@
             </div>
         </div>
     </div>
+
+    @for ($i = 0; $i < 100; $i++)
+        <div class="py-2">
+            ciao
+        </div>
+    @endfor
 </div>
 
 @endsection
