@@ -1,12 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
  
-     
+@include('partials.sidebar')  
 
- <div class="container">
+ 
+
+ <div class="main-content">
         <div class="mt-5 d-flex align-items-center"> 
-            <h3 class="m-0 me-3">Tabella Post</h3>
+            <h3 class="m-0 me-3">Tabella Product</h3>
             <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary icon" href=""><i class="fa-solid fa-circle-plus"></i></a>
         </div>
         <div class="mt-3">
