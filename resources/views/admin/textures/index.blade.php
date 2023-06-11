@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
-    <div class="container">
+    <div class="">
         <div class="mt-5 d-flex align-items-center">
             <h3 class="m-0 me-3">Tabella Texture</h3>
             <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary icon" href=""><i

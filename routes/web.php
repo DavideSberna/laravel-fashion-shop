@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->parameters(['products' => 'product:slug']);
+    Route::resource('brands', BrandController::class)->parameters(['brands' => 'brands:slug']);
     Route::resource('categories', CategoryController::class)->parameters(['categories' => 'category:slug']);
     Route::resource('textures', TextureController::class)->parameters(['textures' => 'texture:slug']);
 });

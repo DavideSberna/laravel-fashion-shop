@@ -16,7 +16,12 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $brands = Brand::all();
+
+        if($brands->count() >= 1)
+            $brands = $brands->toQuery()->paginate();
+            
+        return view("admin.brands.index", ["brands" => $brands]);
     }
 
     /**
@@ -48,7 +53,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
+        dd("ciao");
     }
 
     /**
