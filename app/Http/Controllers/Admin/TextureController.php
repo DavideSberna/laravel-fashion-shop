@@ -16,7 +16,8 @@ class TextureController extends Controller
      */
     public function index()
     {
-        //
+        $textures = Texture::all();
+        return view('admin.textures.index', compact('textures'));
     }
 
     /**
@@ -48,7 +49,7 @@ class TextureController extends Controller
      */
     public function show(Texture $texture)
     {
-        //
+        return view('admin.textures.show' ,compact('texture'));
     }
 
     /**

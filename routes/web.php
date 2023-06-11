@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TextureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->parameters(['products' => 'product:slug']);
     Route::resource('categories', CategoryController::class)->parameters(['categories' => 'category:slug']);
+    Route::resource('textures', TextureController::class)->parameters(['textures' => 'texture:slug']);
 });
 
 // Route::middleware('auth')->group(function () {
