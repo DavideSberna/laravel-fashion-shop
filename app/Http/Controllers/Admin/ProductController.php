@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Brand;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class ProductController extends Controller
@@ -29,7 +33,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+        $categories = Category::all();
+        $brands = Brand::paginate(15);
+        return view('admin.products.create' , compact('products', 'categories', 'brands'));
     }
 
     /**
@@ -40,7 +47,28 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $data = $request->validated();
+        $slug = Str::slug($data['name'], '-');
+        $data['slug'] = $slug;
+
+        //dd($data);
+        //dd($slug);
+        //dd($data['slug']);
+
+        if ($request->hasFile('cover_image')) {
+            $image_path = Storage::put('images', $request->cover_image);
+            $data['cover_image'] = asset('storage/' . $image_path);
+        };
+
+        //dd($data);
+        $product = Product::create($data);
+
+        
+
+
+
+
+        return redirect()->route('admin.products.show', $product->slug);
     }
 
     /**
