@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
-    <div class="container">
+
+    <div class="">
         <div class="row mt-5">
             <div class="mb-4 icon">
                 <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary"
