@@ -5,7 +5,7 @@
 
     <div class="row mt-5">
         <div class="mb-4 icon">           
-            <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary" href="{{ route('admin.products.index') }}"><i class="fa-solid fa-circle-chevron-left text-secondary"></i></a>
+            <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary" href="{{ route('admin.brands.index') }}"><i class="fa-solid fa-circle-chevron-left text-secondary"></i></a>
         </div>
         <!-- @if (session()->has('message'))
     <div class="alert alert-success">
@@ -14,13 +14,9 @@
     @endif -->
         <div class="col">
             <div class="card">
-                <img src="{{ $product->cover_image }}" class="card-img-top" alt="{{ $product->name }}">
+                <img src="{{ $brand->logo }}" class="card-img-top" alt="{{ $brand->name }}">
                 <div class="card-body">
-                    <h3 class="card-title">{{ $product->name }}</h3>
-                    <p>{{ $product->description }}</p>
-                    <p>Price: {{ $product->price }} euro</p>
-                    <p>Brand: {{ $product->brand->name }}</p>
-                    <p>category: {{ $product->category->name }}</p>
+                    <h3 class="card-title">{{ $brand->name }}</h3>
 
 
 

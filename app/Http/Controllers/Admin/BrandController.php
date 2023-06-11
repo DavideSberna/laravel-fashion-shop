@@ -53,7 +53,8 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        dd("ciao");
+        dd($brand);
+        return view('admin.brands.show', compact('brand'));
     }
 
     /**
