@@ -1,8 +1,10 @@
 @extends('layouts.admin')
 
+@section('page_title')
+    Dashboard
+@endsection
+
 @section('content')
-
-
     <h2 class="fs-4 text-secondary my-4">
         {{ __('Dashboard') }}
     </h2>
@@ -29,6 +31,4 @@
             ciao
         </div>
     @endfor
-
-
 @endsection

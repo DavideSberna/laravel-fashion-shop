@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
@@ -29,6 +30,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('brands', BrandController::class)->parameters(['brands' => 'brand:slug']);
     Route::resource('categories', CategoryController::class)->parameters(['categories' => 'category:slug']);
     Route::resource('textures', TextureController::class)->parameters(['textures' => 'texture:slug']);
+    Route::resource('colors', ColorController::class)->parameters(['colors' => 'color:id']);
 });
 
 // Route::middleware('auth')->group(function () {
