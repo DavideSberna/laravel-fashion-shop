@@ -1,9 +1,5 @@
 @extends('layouts.admin')
 
-@section('page_title')
-    Products
-@endsection
-
 @section('content')
     <div class="mt-5 d-flex align-items-center">
         <h3 class="m-0 me-3">Tabella Product</h3>
