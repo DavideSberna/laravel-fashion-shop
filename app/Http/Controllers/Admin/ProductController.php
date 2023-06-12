@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Color;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Str;
@@ -36,7 +37,8 @@ class ProductController extends Controller
         $products = Product::all();
         $categories = Category::all();
         $brands = Brand::paginate(15);
-        return view('admin.products.create' , compact('products', 'categories', 'brands'));
+        $colors = Color::all();
+        return view('admin.products.create' , compact('products', 'categories', 'brands', 'colors'));
     }
 
     /**
@@ -63,10 +65,9 @@ class ProductController extends Controller
         //dd($data);
         $product = Product::create($data);
 
-
-
-
-
+        if ($request->has('colors')) {
+            $product->colors()->attach($request->colors);
+        };
 
         return redirect()->route('admin.products.show', $product->slug);
     }

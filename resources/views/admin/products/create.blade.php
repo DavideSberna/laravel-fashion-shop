@@ -75,6 +75,19 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        @foreach ($colors as $color)
+                            <div
+                                style="background-color: {{ $color->hexValue }}; width:250px; margin:5px; padding:5px; color:black">
+                                <input type="checkbox" name="colors[]" value="{{ $color->id }}" class="form-check-input"
+                                    {{ in_array($color->id, old('colors', [])) ? 'checked' : '' }}>
+                                <label for="" class="form-check-label">{{ $color->colorName }}</label>
+                            </div>
+                        @endforeach
+                        @error('color_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <button type="submit" class="btn btn-primary">Add</button>
                 </form>
             </div>

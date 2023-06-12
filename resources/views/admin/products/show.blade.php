@@ -24,10 +24,16 @@
                     <p>Price: {{ $product->price }} euro</p>
                     <p>Brand: {{ $product->brand->name }}</p>
                     <p>category: {{ $product->category->name }}</p>
-
-
-
                     <div>
+                        <span>Colors:</span>
+                        @foreach ( $product->colors as $color)
+                           <span class="badge rounded-pill" style="background-color: {{ $color->hexValue }}">{{ $color->colorName }}</span>
+                        @endforeach
+                    </div>
+
+
+
+                    <div class="mt-4"> 
                         <span class="btn btn-success"><a
                                 class="link-offset-2 link-underline link-underline-opacity-0 text-white"
                                 href="">Edit</a></span>
