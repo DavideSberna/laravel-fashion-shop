@@ -1,6 +1,10 @@
 @extends('layouts.admin')
-@section('content')
 
+@section('page_title')
+    Texture
+@endsection
+
+@section('content')
     <div class="">
         <div class="row mt-5">
             <div class="mb-4 icon">
@@ -10,8 +14,8 @@
             </div>
             <!-- @if (session()->has('message'))
     <div class="alert alert-success">
-                        {{ session()->get('message') }}
-                    </div>
+                            {{ session()->get('message') }}
+                        </div>
     @endif -->
             <div class="col">
                 <div class="card">

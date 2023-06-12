@@ -1,4 +1,9 @@
 @extends('layouts.admin')
+
+@section('page_title')
+    Textures
+@endsection
+
 @section('content')
     <div class="">
         <div class="mt-5 d-flex align-items-center">

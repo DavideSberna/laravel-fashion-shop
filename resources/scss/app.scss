@@ -10,12 +10,12 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
-.img-table{
+.img-table {
     width: 80px;
     height: 80px;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,27 +26,27 @@ header{
     height: $header_height;
     box-shadow: 0 0 25px 0px black;
 
-    a{
+    a {
         color: white;
         text-decoration: none;
     }
 
-    .al-profile-image{
+    .al-profile-image {
         height: calc($header_height - 25px);
         border: 1px groove black;
         box-shadow: 0 0 5px 0 black;
     }
 
-    .logo{
+    .logo {
         width: 170px;
-    
-        @media screen and (min-width: 768px){
+
+        @media screen and (min-width: 768px) {
             width: 250px;
         }
     }
 }
 
-aside{
+aside {
     width: $aside_width;
     height: calc(100vh - $header_height);
     overflow-y: auto;
@@ -59,25 +59,25 @@ aside{
     color: white;
     transition: width 300ms;
 
-    @media screen and (min-width: 768px){
-        width: $aside_width_md;    
+    @media screen and (min-width: 768px) {
+        width: $aside_width_md;
     }
 
-    a{
+    a {
         color: white;
         text-decoration: none;
         transition: background-color 300ms;
 
-        &:hover{
+        &:hover {
             background-color: $aside_hover_color;
         }
 
-        i{
+        i {
             font-size: 1.4rem;
         }
     }
 
-    .sidebar-resizer{
+    .sidebar-resizer {
         width: 40px;
         height: 40px;
         min-width: 40px;
@@ -93,25 +93,25 @@ aside{
         transition: transform 300ms;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             transform: scale(1.1);
         }
 
-        i{
+        i {
             font-size: 1.4rem;
         }
 
-        @media screen and (min-width: 768px){
+        @media screen and (min-width: 768px) {
             display: none;
         }
     }
 }
 
-.sidebar-resized{
+.sidebar-resized {
     width: $aside_width_md;
 }
 
-.main-content{
+.main-content {
     width: calc(100vw - $aside_width);
     height: calc(100vh - $header_height);
     overflow-y: auto;
@@ -120,10 +120,11 @@ aside{
     word-wrap: break-word;
 }
 
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
 }
 
+ 25-dashboardcontroller
 .img-size{
     width: 100%;
     max-width: 400px;
@@ -150,6 +151,9 @@ aside{
     color: $warning;
 }
 .al-menu{
+
+.al-menu {
+ main
     // transform-origin: top right;
     transform: scale(0);
     position: absolute;
@@ -161,7 +165,7 @@ aside{
     z-index: 100;
 }
 
-.al-menu-item{
+.al-menu-item {
     display: block;
     white-space: nowrap;
     background-color: white;
@@ -172,15 +176,26 @@ aside{
     z-index: 10;
     color: black;
 
-    a{
+    a {
         color: black;
     }
 }
 
-.al-menu-item:hover{
+.al-menu-item:hover {
     background-color: lightgray;
 }
 
-.al-menu-visible{
+.al-menu-visible {
     transform: scale(1);
+
 }
+
+.icon{
+    font-size: 2.2em;
+}
+.card-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+

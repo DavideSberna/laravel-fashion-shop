@@ -1,17 +1,22 @@
 @extends('layouts.admin')
-@section('content')
 
+@section('page_title')
+    Category
+@endsection
+
+@section('content')
     <div class="">
         <div class="row mt-5">
             <div class="mb-4 icon">
-                <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary" href="{{ route('admin.categories.index') }}">
+                <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary"
+                    href="{{ route('admin.categories.index') }}">
                     <i class="fa-solid fa-circle-chevron-left text-secondary"></i>
                 </a>
             </div>
             <!-- @if (session()->has('message'))
     <div class="alert alert-success">
-                            {{ session()->get('message') }}
-                        </div>
+                                {{ session()->get('message') }}
+                            </div>
     @endif -->
             <div class="col">
                 <div class="card">
