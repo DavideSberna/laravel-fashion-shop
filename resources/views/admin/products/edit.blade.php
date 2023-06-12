@@ -1,11 +1,6 @@
 @extends('layouts.admin')
 @section('content')
 
-
-
-
-
-
 <div class="container">
     <div class="row mt-5">
         <div class="mb-4 icon">
@@ -24,12 +19,12 @@
             @endif
         </div> -->
         <div class="col-6">
-            <form action="{{ route('admin.products.store') }}" enctype="multipart/form-data" method="POST" >
+            <form action="{{ route('admin.products.update', $product->slug)  }}" enctype="multipart/form-data" method="POST">
                 @csrf
-
+                @method('PUT')
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="name" id="name" aria-describedby="emailHelp" value="{{ old('name') }}">
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="name" id="name" aria-describedby="emailHelp" value="{{ old('name', $product->name) }}">
                 </div>
                 <div class="mb-3">
                     <label for="cover_image">Image</label>
@@ -37,11 +32,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" value="{{ old('description') }}">
+                    <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" value="{{ old('description', $product->description) }}">
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">price</label>
-                    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" id="price" value="{{ old('price') }}">
+                    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" id="price" value="{{ old('price', $product->price) }}">
                 </div>
 
                 <div class="mb-3">
@@ -49,7 +44,9 @@
                     <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
                         <option value="">Seleziona categoria</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}"
+                                {{ $category->id == old('category', $product->category_id) ? 'selected' : '' }}>{{ $category->name }}
+                            </option>
                         @endforeach
                     </select>
                     @error('category_id')
@@ -62,19 +59,20 @@
                     <select name="brand_id" id="brand_id" class="form-control @error('brand_id') is-invalid @enderror">
                         <option value="">Seleziona brand</option>
                         @foreach ($brands as $brand)
-                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                            <option value="{{ $brand->id }}"
+                                {{ $brand->id == old('brand_id', $product->brand_id) ? 'selected' : '' }}>{{ $brand->name }}
+                            </option>
                         @endforeach
                     </select>
                     @error('brand_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
             </form>
         </div>
     </div>
 </div>
-
-
 
 @endsection

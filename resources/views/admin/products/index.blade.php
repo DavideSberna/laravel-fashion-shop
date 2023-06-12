@@ -35,7 +35,7 @@
                         <td>{{ $product->category ? $product->category->name : 'Senza categoria' }}</td>
 
                         <td>
-                            <a href="http://">Edit</a>
+                            <a href="{{ route('admin.products.edit', $product->slug) }}">Edit</a>
                             <a href="{{ route('admin.products.show', $product->slug) }}">Show</a>
                             <form action="" method="POST">
                                 @csrf
