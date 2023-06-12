@@ -31,6 +31,7 @@
                            <span class="badge rounded-pill" style="background-color: {{ $color->hexValue }}">{{ $color->colorName }}</span>
                         @endforeach
                         @endif
+                        
                     </div>
 
 
