@@ -22,11 +22,14 @@ class Product extends Model
     {
         return $this->belongsTo(category::class);
     }
-    
+
     public function texture(): BelongsTo
     {
         return $this->belongsTo(texture::class);
     }
 
-
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class);
+    }
 }

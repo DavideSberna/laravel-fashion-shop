@@ -1,12 +1,15 @@
 @extends('layouts.admin')
+
+@section('page_title')
+    Brands
+@endsection
+
 @section('content')
-
-
-
     <div class="mt-5 d-flex align-items-center">
 
         <h3 class="m-0 me-3">Tabella Brands</h3>
-        <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary icon" href=""><i class="fa-solid fa-circle-plus"></i></a>
+        <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary icon" href=""><i
+                class="fa-solid fa-circle-plus"></i></a>
 
     </div>
     <div class="mt-3">
@@ -50,6 +53,4 @@
             </div>
         @endif
     </div>
-
-
 @endsection

@@ -1,7 +1,10 @@
 @extends('layouts.admin')
+
+@section('page_title')
+    Categories
+@endsection
+
 @section('content')
-
-
     <div class="mt-5 d-flex align-items-center">
         <h3 class="m-0 me-3">Tabella Category</h3>
         <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary icon" href=""><i
@@ -43,6 +46,4 @@
                 {{$categories->links('pagination::bootstrap-4')}}
             </div> --}}
     </div>
-
-    
 @endsection
