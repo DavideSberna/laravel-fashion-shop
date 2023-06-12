@@ -1,6 +1,14 @@
 <aside class="d-flex flex-column pt-4">
 
 
+    <a href="{{Route('admin.dashboard')}}" class="d-flex align-items-center gap-2 py-3 px-3">
+        <i class="fa-solid fa-cubes"></i>
+        <span class="d-none d-md-block">Dashboard</span>
+    </a>
+
+    <hr>
+    <hr>
+    
     <a href="{{Route('admin.products.index')}}" class="d-flex align-items-center gap-2 py-3 px-3">
         <i class="fa-solid fa-tag"></i>
         <span class="d-none d-md-block">Prodotti</span>
