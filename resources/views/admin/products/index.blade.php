@@ -1,8 +1,10 @@
 @extends('layouts.admin')
+
+@section('page_title')
+    Products
+@endsection
+
 @section('content')
-
-
-
     <div class="mt-5 d-flex align-items-center">
         <h3 class="m-0 me-3">Tabella Product</h3>
         <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary icon"
@@ -52,7 +54,4 @@
             {{ $products->links('pagination::bootstrap-4') }}
         </div>
     </div>
-
-
-
 @endsection
