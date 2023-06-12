@@ -1,7 +1,13 @@
 <header>
-    <a href="{{ url('/') }}" class="pe-5">
-        <img class="logo" src="{{ Vite::asset('resources/img/logo.png') }}" alt="logo">
-    </a>
+    <div class="d-flex gap-3">
+
+        <a href="{{ url('/') }}">
+            <img class="logo" src="{{ Vite::asset('resources/img/logo.png') }}" alt="logo">
+        </a>
+
+        <a href="{{ url('/') }}" class="d-flex align-items-center pe-5">Home</a>
+
+    </div>
 
     <div class="d-flex gap-3">
         @guest
