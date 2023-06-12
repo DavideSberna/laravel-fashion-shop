@@ -18,7 +18,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
@@ -29,7 +29,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function create()
     {
@@ -43,7 +43,7 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreProductRequest  $request
-     * @return \Illuminate\Http\Response
+     *
      */
     public function store(StoreProductRequest $request)
     {
@@ -63,7 +63,7 @@ class ProductController extends Controller
         //dd($data);
         $product = Product::create($data);
 
-        
+
 
 
 
@@ -75,7 +75,7 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     *
      */
     public function show(Product $product)
     {
@@ -86,11 +86,14 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     *
      */
     public function edit(Product $product)
     {
-        //
+        $products = Product::all();
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('admin.products.edit' , compact('product', 'products', 'categories', 'brands'));
     }
 
     /**
@@ -98,21 +101,32 @@ class ProductController extends Controller
      *
      * @param  \App\Http\Requests\UpdateProductRequest  $request
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     *
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $data = $request->validated();
+        $slug = Str::slug($request->name, '-');
+        $data['slug'] = $slug;
+
+        if ($request->hasFile('cover_image')) {
+            $image_path = Storage::put('images', $request->cover_image);
+            $data['cover_image'] = asset('storage/' . $image_path);
+        };
+
+        $product->update($data);
+        return redirect()->route('admin.products.show', $product->slug);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     *
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('admin.products.index')->with('message', "$product->name deleted successfully.");
     }
 }
