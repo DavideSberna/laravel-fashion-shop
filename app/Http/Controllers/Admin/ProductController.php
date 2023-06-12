@@ -63,7 +63,7 @@ class ProductController extends Controller
         //dd($data);
         $product = Product::create($data);
 
-        
+
 
 
 
@@ -113,6 +113,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('admin.products.index')->with('message', "$product->name deleted successfully.");
     }
 }

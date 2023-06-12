@@ -37,10 +37,11 @@
                         <td>
                             <a href="http://">Edit</a>
                             <a href="{{ route('admin.products.show', $product->slug) }}">Show</a>
-                            <form action="" method="POST">
+                            <form action="{{ route('admin.products.destroy', $product->slug) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Delete">
+                                <button type='submit' class="delete-button btn btn-danger text-white"
+                                    data-item-title="{{ $product->name }}"> <i class="fa-solid fa-trash"></i></button>
                             </form>
 
                         </td>
@@ -52,7 +53,7 @@
             {{ $products->links('pagination::bootstrap-4') }}
         </div>
     </div>
-
+    @include('partials.modal-delete')
 
 
 @endsection
