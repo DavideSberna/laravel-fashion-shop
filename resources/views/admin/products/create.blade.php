@@ -1,6 +1,11 @@
 @extends('layouts.admin')
-
 @section('content')
+
+
+
+
+
+
     <div class="container">
         <div class="row mt-5">
             <div class="mb-4 icon">
@@ -9,17 +14,17 @@
                         class="fa-solid fa-circle-chevron-left text-secondary"></i></a>
             </div>
             <!-- <div class="mb-3">
-                        <h3>Aggiungi nuovi progetti</h3>
-                        @if ($errors->any())
+                <h3>Aggiungi nuovi progetti</h3>
+                @if ($errors->any())
     <div class="alert alert-danger">
-                            <ul class="">
-                                @foreach ($errors->all() as $error)
+                    <ul class="">
+                        @foreach ($errors->all() as $error)
     <li class="list-group-item">-{{ $error }}</li>
     @endforeach
-                            </ul>
-                        </div>
+                    </ul>
+                </div>
     @endif
-                    </div> -->
+            </div> -->
             <div class="col-6">
                 <form action="{{ route('admin.products.store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
