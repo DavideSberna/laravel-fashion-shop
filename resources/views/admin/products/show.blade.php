@@ -25,10 +25,12 @@
                     <p>Brand: {{ $product->brand->name }}</p>
                     <p>category: {{ $product->category->name }}</p>
                     <div>
-                        <span>Colors:</span>
-                        @foreach ( $product->colors as $color)
-                           <span class="badge rounded-pill" style="background-color: {{ $color->hexValue }}">{{ $color->colorName }}</span>
-                        @endforeach
+                        @if(count($product->colors) !== 0)
+                            <span>Colors:</span>
+                            @foreach ( $product->colors as $color)
+                            <span class="badge rounded-pill" style="background-color: {{ $color->hexValue }}">{{ $color->colorName }}</span>
+                            @endforeach
+                        @endif
                     </div>
 
 
