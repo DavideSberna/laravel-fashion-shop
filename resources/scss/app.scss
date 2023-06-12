@@ -124,7 +124,36 @@ aside {
     cursor: pointer;
 }
 
+ 25-dashboardcontroller
+.img-size{
+    width: 100%;
+    max-width: 400px;
+}
+
+.al-icon {
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: all 300ms;
+
+    &:hover {
+        transform: scale(1.2);
+        color: lightgreen;
+    }
+}
+
+.al-icon.hover-red:hover {
+    transform: scale(1.2);
+    color: #dc3545;
+}
+
+.al-icon.hover-yellow:hover {
+    transform: scale(1.2);
+    color: $warning;
+}
+.al-menu{
+
 .al-menu {
+ main
     // transform-origin: top right;
     transform: scale(0);
     position: absolute;

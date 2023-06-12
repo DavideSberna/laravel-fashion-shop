@@ -47,10 +47,10 @@
                 @endforeach
             </tbody>
         </table>
-        @if ($brands->count() >= 1)
-            <div class="pagination">
-                {{ $brands->links('pagination::bootstrap-4') }}
-            </div>
-        @endif
+
+        <div class="pagination">
+            {{ $brands->links('pagination::bootstrap-4') }}
+        </div>
+        
     </div>
 @endsection
