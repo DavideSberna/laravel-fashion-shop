@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
- 25-dashboardcontroller
+@section("page_title")
+Dashboard
+@endsection
+
 @section('content')
     <h1 class="my-4">Dashboard</h1>
 
@@ -8,20 +11,6 @@
     <hr>
 
     <h2 class="pt-5">Prodotti</h2>
-
-@section('page_title')
-    Dashboard
-@endsection
-
-@section('content')
-    <h2 class="fs-4 text-secondary my-4">
-        {{ __('Dashboard') }}
-    </h2>
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">{{ __('User Dashboard') }}</div>
- main
 
     <hr>
 
@@ -56,7 +45,7 @@
                         <i class="fa-solid fa-eye al-icon hover-yellow"></i>
                     </a>
 
-                    <a href="{{route('admin.products.destroy', $product->id)}}">
+                    <a href="{{route('admin.products.destroy', $product->slug)}}">
                         <i class="fa-solid fa-trash al-icon hover-red"></i>
                     </a>
                 </div>
@@ -64,7 +53,6 @@
         @endforeach
     </div>
 
- 25-dashboardcontroller
     <div class="pagination py-3">
         {{ $products->links('pagination::bootstrap-4') }}
     </div>
@@ -199,11 +187,4 @@
         {{ $categories->links('pagination::bootstrap-4') }}
     </div>
 
-
-    @for ($i = 0; $i < 100; $i++)
-        <div class="py-2">
-            ciao
-        </div>
-    @endfor
- main
 @endsection
