@@ -12,6 +12,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    //cambiare con fillable
 
     public function brand(): BelongsTo
     {

@@ -16,6 +16,9 @@
                     <th>Description</th>
                     <th>Price</th>
                     <th>Category</th>
+                    <th>Brand</th>
+                    <th>Color</th>
+                    <th>Action</th>
 
 
                 </tr>
@@ -25,11 +28,20 @@
                     <tr>
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
-                        <td><img class="post-img-size img-table" src="{{ $product->cover_image }}" alt="{{ $product->name }}">
-                        </td>
+                        <td><img class="post-img-size img-table" src="{{ $product->cover_image }}" alt="{{ $product->name }}"></td>
                         <td>{{ Str::limit($product->description, 40, '...') }}</td>
                         <td>{{ $product->price }} euro</td>
                         <td>{{ $product->category ? $product->category->name : 'Senza categoria' }}</td>
+                        <td>{{ $product->brand ? $product->brand->name : 'Senza Brand' }}</td>
+                        <td>
+                            @if(count($product->colors) !== 0)
+                                @foreach ( $product->colors as $color)
+                                    {{ $color->colorName . ',' }}
+                                @endforeach
+                            @else
+                                <p>Senza colori</p>
+                            @endif
+                        </td>
 
                         <td>
                             <a href="{{ route('admin.products.edit', $product->slug) }}">Edit</a>
