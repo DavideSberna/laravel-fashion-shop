@@ -22,6 +22,12 @@ class BrandController extends Controller
             $brands = $brands->toQuery()->paginate(10);
             
         return view("admin.brands.index", ["brands" => $brands]);
+
+
+
+
+
+        
     }
 
     /**
