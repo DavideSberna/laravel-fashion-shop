@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('price', 'desc')->take(5)->get();
+        $products = Product::inRandomOrder()->limit(5)->get();
         $categories = Category::all();
         return response()->json([
             'success' => true,
@@ -19,7 +19,7 @@ class HomeController extends Controller
                 'products' => $products,
                 'categories' => $categories,
             ]
-        ]); 
+        ]);
     }
-    
+
 }
