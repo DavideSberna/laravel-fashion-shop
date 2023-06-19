@@ -29,12 +29,13 @@
                         <td>{{ $category->name }}</td>
 
                         <td>
-                            <a href="http://">Edit</a>
+                            <a href="{{route('admin.categories.edit', $category->slug)}}">Edit</a>
                             <a href="{{ route('admin.categories.show', $category->slug) }}">Show</a>
-                            <form action="" method="POST">
+                            <form action="{{route('admin.categories.destroy', $category->slug)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Delete">
+                                
+                                <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash text-danger cursor-pointer"></i>
                             </form>
 
                         </td>

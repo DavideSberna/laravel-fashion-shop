@@ -21,11 +21,11 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->double('price', 6, 2)->nullable();
             $table->unsignedBigInteger('brand_id')->nullable();
-            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('brand_id')->references('id')->on('brands')->cascadeOnDelete();
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
             $table->unsignedBigInteger('texture_id')->nullable();
-            $table->foreign('texture_id')->references('id')->on('textures');
+            $table->foreign('texture_id')->references('id')->on('textures')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Texture;
 use App\Http\Requests\StoreTextureRequest;
 use App\Http\Requests\UpdateTextureRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TextureController extends Controller
 {
@@ -60,7 +62,7 @@ class TextureController extends Controller
      */
     public function edit(Texture $texture)
     {
-        //
+        return view("admin.textures.edit", compact("texture"));
     }
 
     /**
@@ -72,7 +74,13 @@ class TextureController extends Controller
      */
     public function update(UpdateTextureRequest $request, Texture $texture)
     {
-        //
+        $validated = $request->validated();
+        $texture->update($validated);
+
+        $texture->slug = Str::slug($texture->name, "-");
+        $texture->save();
+
+        return redirect()->route("admin.textures.show", $texture->slug);
     }
 
     /**
@@ -83,6 +91,7 @@ class TextureController extends Controller
      */
     public function destroy(Texture $texture)
     {
-        //
+        $texture->delete();
+        return redirect()->route("admin.textures.index");
     }
 }

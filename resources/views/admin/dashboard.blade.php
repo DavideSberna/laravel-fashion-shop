@@ -37,17 +37,25 @@ Dashboard
 
 
                 <div class="align-self-end d-flex gap-3 pt-4">
-                    <a href="{{route('admin.products.edit', $product->slug)}}">
-                        <i class="fa-solid fa-edit al-icon"></i>
-                    </a>
 
                     <a href="{{route('admin.products.show', $product->slug)}}">
-                        <i class="fa-solid fa-eye al-icon hover-yellow"></i>
+                        <i class="fa-solid fa-eye al-icon"></i>
+                    </a>
+                    
+                    <a href="{{route('admin.products.edit', $product->slug)}}">
+                        <i class="fa-solid fa-edit al-icon hover-yellow"></i>
                     </a>
 
-                    <a href="{{route('admin.products.destroy', $product->slug)}}">
+                    {{-- <a href="{{route('admin.products.destroy', $product->slug)}}">
                         <i class="fa-solid fa-trash al-icon hover-red"></i>
-                    </a>
+                    </a> --}}
+
+                    <form action="{{route('admin.products.destroy', $product->slug)}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+
+                        <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash al-icon-primary al-icon hover-red"></i>
+                    </form>
                 </div>
             </div>
         @endforeach
@@ -84,12 +92,13 @@ Dashboard
                     </td>
 
                     <td>
-                        <a href="http://">Edit</a>
+                        <a href="{{route('admin.brands.edit', $brand->slug)}}">Edit</a>
                         <a href="{{ route('admin.brands.show', $brand->slug) }}">Show</a>
-                        <form action="" method="POST">
+                        <form action="{{route('admin.brands.destroy', $brand->slug)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="Delete">
+
+                                <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash text-danger cursor-pointer"></i>
                         </form>
 
                     </td>
@@ -127,12 +136,13 @@ Dashboard
                     <td>{{ $category->name }}</td>
 
                     <td>
-                        <a href="http://">Edit</a>
+                        <a href="{{route('admin.categories.edit', $category->slug)}}">Edit</a>
                         <a href="{{ route('admin.categories.show', $category->slug) }}">Show</a>
-                        <form action="" method="POST">
+                        <form action="{{route('admin.categories.destroy', $category->slug)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="Delete">
+                            
+                            <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash text-danger cursor-pointer"></i>
                         </form>
 
                     </td>
@@ -169,12 +179,13 @@ Dashboard
                     <td>{{ $texture->name }}</td>
 
                     <td>
-                        <a href="http://">Edit</a>
+                        <a href="{{route('admin.textures.edit', $texture->slug)}}">Edit</a>
                         <a href="{{ route('admin.textures.show', $texture->slug) }}">Show</a>
-                        <form action="" method="POST">
+                        <form action="{{route('admin.textures.destroy', $texture->slug)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="Delete">
+
+                            <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash text-danger cursor-pointer"></i>
                         </form>
 
                     </td>
