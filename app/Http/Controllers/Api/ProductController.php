@@ -19,12 +19,12 @@ class ProductController extends Controller
 
     public function show($slug)
     {
-        $products = Product::with('brand', 'category')->where('slug', $slug)->first();
+        $product = Product::with('brand', 'category')->where('slug', $slug)->first();
 
-        if($products){
+        if($product){
             return response()->json([
                 'success' => true,
-                'results' => $products
+                'results' => $product
             ]);
         }else{
             return response()->json([
@@ -32,6 +32,6 @@ class ProductController extends Controller
                 'results' => 'record non found'
             ]);
         }
-       
+
     }
 }
