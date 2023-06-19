@@ -12,8 +12,8 @@
         </div>
         <!-- @if (session()->has('message'))
     <div class="alert alert-success">
-                                {{ session()->get('message') }}
-                            </div>
+                                    {{ session()->get('message') }}
+                                </div>
     @endif -->
         <div class="col">
             <div class="card">
@@ -27,9 +27,13 @@
                         <span class="btn btn-success"><a
                                 class="link-offset-2 link-underline link-underline-opacity-0 text-white"
                                 href="">Edit</a></span>
-                        <span class="btn btn-danger"><a
-                                class="link-offset-2 link-underline link-underline-opacity-0 text-white"
-                                href="">Delete</a></span>
+
+                        <form action="{{ route('admin.brands.destroy', $brand->slug) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            
+                            <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash text-danger cursor-pointer"></i>
+                        </form>
                     </div>
                 </div>
             </div>
