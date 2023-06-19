@@ -49,8 +49,7 @@
                             <form action="{{ route('admin.products.destroy', $product->slug) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type='submit' class="delete-button btn btn-danger text-white"
-                                    data-item-title="{{ $product->name }}"> <i class="fa-solid fa-trash"></i></button>
+                                <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash text-danger cursor-pointer"></i>
                             </form>
 
                         </td>

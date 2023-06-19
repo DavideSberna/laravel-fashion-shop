@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Http\Requests\StoreBrandRequest;
 use App\Http\Requests\UpdateBrandRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class BrandController extends Controller
 {
@@ -61,7 +64,8 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        // dd($brand);
+        return view("admin.brands.edit", ["brand" => $brand]);
     }
 
     /**
@@ -73,7 +77,21 @@ class BrandController extends Controller
      */
     public function update(UpdateBrandRequest $request, Brand $brand)
     {
-        //
+        $validated = $request->validated();
+        $brand->update($validated);
+
+        if($request->hasFile("logo")){
+            if($brand->logo != null)
+                Storage::delete($brand->logo);
+                
+            $image_path = Storage::put('images', $request->logo);
+            $brand->logo = $image_path;
+        }
+
+        $brand->slug = Str::slug($brand->name, "-");
+        $brand->save();
+
+        return redirect()->route("admin.brands.show", $brand->slug);
     }
 
     /**
@@ -84,6 +102,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return redirect()->route("admin.brands.index");
     }
 }

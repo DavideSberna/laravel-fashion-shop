@@ -34,12 +34,12 @@
                         </td>
 
                         <td>
-                            <a href="http://">Edit</a>
+                            <a href="{{route('admin.brands.edit', $brand->slug)}}">Edit</a>
                             <a href="{{ route('admin.brands.show', $brand->slug) }}">Show</a>
-                            <form action="" method="POST">
+                            <form action="{{ route('admin.brands.destroy', $brand->slug) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Delete">
+                                <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash text-danger cursor-pointer"></i>
                             </form>
 
                         </td>

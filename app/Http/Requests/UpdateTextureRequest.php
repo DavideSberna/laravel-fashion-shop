@@ -13,7 +13,7 @@ class UpdateTextureRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class UpdateTextureRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => ["required", "unique:textures,name,{$this->texture->id}", "max:100"]
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            "name.required" => "Il nome della texture è obbligatorio",
+            "name.unique" => "Questa texture è già presente nel database",
+            "name.max" => "Il nome della texture non può superare i 100 caratteri"
         ];
     }
 }

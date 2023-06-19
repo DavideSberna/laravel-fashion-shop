@@ -48,3 +48,8 @@ export function resizeSidebar(){
         });
     }
 }
+
+export function submitForm(e){
+    let form = e.target.closest("form");
+    form.submit();
+}

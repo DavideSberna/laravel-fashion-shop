@@ -30,12 +30,13 @@
                             <td>{{ $texture->name }}</td>
 
                             <td>
-                                <a href="http://">Edit</a>
+                                <a href="{{route('admin.textures.edit', $texture->slug)}}">Edit</a>
                                 <a href="{{ route('admin.textures.show', $texture->slug) }}">Show</a>
-                                <form action="" method="POST">
+                                <form action="{{route('admin.textures.destroy', $texture->slug)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete">
+
+                                    <i onclick="window.Func.submitForm(event)" class="fa-solid fa-trash text-danger cursor-pointer"></i>
                                 </form>
 
                             </td>

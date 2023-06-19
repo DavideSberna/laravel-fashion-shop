@@ -13,7 +13,7 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class UpdateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => ["required", "unique:categories,name,{$this->category->id}", "max:100"]
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            "name.required" => "Il nome delle categoria è obbligatorio",
+            "name.unique" => "Questa cateoria è già presente nel database",
+            "name.max" => "Il nome della categoria non può superare i 100 caratteri"
         ];
     }
 }
